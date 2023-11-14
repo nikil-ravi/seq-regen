@@ -1,0 +1,5 @@
+transformers
+torchmetrics
+datasets
+evaluate
+PyYAML

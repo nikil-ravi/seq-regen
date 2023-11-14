@@ -1,0 +1,10 @@
+# yaml file with config
+
+model:
+  gpt2
+
+dataset:
+  glue
+
+cache_dir:
+  ./datasets
