@@ -2,8 +2,8 @@
 
 model: gpt2
 
-dataset: glue
-  task: "None"
+dataset: 
+  name: glue
+  task: 
 
-cache_dir:
-  ./datasets
+cache_dir: ./datasets
