@@ -46,8 +46,8 @@ def main():
     #print(train)
 
     # iterate through train data
-    for i in range(len(train[:10])):
-        print(train[i])
+    # for i in range(len(train[:10])):
+    #     print(train[i])
 
     # do something with the data loaders in batches....
     # for i, batch in enumerate(train_dataloader):
@@ -56,6 +56,13 @@ def main():
     #     print(i)
     #     print(batch.keys())
     #     print()
+
+    masked, _ = mask_out_tokens("hello world, welcome to CS 236 and enjoy")
+    print(masked)
+
+    unmasked = unmask(masked) # this is a placeholder
+    print(unmasked)
+
 
 if __name__ == '__main__':
     main()
