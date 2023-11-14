@@ -1,10 +1,9 @@
 # yaml file with config
 
-model:
-  gpt2
+model: gpt2
 
-dataset:
-  glue
+dataset: glue
+  task: "None"
 
 cache_dir:
   ./datasets

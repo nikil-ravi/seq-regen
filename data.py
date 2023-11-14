@@ -27,13 +27,28 @@ import evaluate
 import numpy as np
 from datasets import load_dataset
 
+GLUE_TASKS = ["ax", "cola", "mnli", "mnli_matched", 
+"mnli_mismatched", "mrpc", "qnli", "qqp", 
+"rte", "sst2", "stsb", "wnli"]
+
 def load_data(config):
     if config['dataset'] == 'glue':
-        data = load_dataset(
-            "glue",
-            config['task_name'] if 'task_name' in config else 'sst2', #handle this better
-            cache_dir=config['cache_dir'],
-        )
+        if config["task"] != None:
+            if config["task"] not in GLUE_TASKS:
+                raise ValueError("Unknown task", config["task"])
+            else:
+                data = load_dataset(
+                    "glue",
+                    config["task"],
+                    cache_dir=config['cache_dir'],
+                )
+        else:
+            # load sst2 by default
+            data = load_dataset(
+                "glue",
+                'qnli', # can we handle this better?
+                cache_dir=config['cache_dir'],
+            )
     elif config['dataset'] == 'squad':
         data = load_dataset(
             "squad",
